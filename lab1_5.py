@@ -66,7 +66,6 @@ def make_purchase():
     print_all_info()
 
 
-# Основной цикл программы
 while True:
     print("\nМеню:")
     print("1. Просмотр цены")
