@@ -18,4 +18,5 @@ while True:
                 print(i)
 
         # Выходим из бесконечного цикла, так как корректное число было введено
-        break  # Exit the loop if a valid input is provided
+        break  
+    
