@@ -1,10 +1,10 @@
 # Исходный словарь с товарами в магазине
 shop_items = {
-    "товар1": [100, 10],
-    "товар2": [200, 5],
-    "товар3": [50, 20],
-    "товар4": [300, 3],
-    "товар5": [150, 8]
+    "молоко": [100, 10],
+    "масло растительное": [200, 5],
+    "яйца": [50, 20],
+    "кофе": [300, 3],
+    "творог": [150, 8]
 }
 
 
@@ -31,9 +31,10 @@ def print_all_info():
     for item_name, item_info in shop_items.items():
         print(f"{item_name} - Цена: {item_info[0]}, Количество: {item_info[1]}")
 
-
-# Функция для совершения покупки
+# Функция для совершения покупки и вывода чека
 def make_purchase():
+    purchased_items = {}  # Создаем словарь для хранения купленных товаров
+
     total_cost = 0
     while True:
         item_name = input("Введите название товара (или 'n' для выхода): ")
@@ -61,11 +62,19 @@ def make_purchase():
             shop_items[item_name][1] -= quantity
             print(f"Вы добавили {item_name} x{quantity} к покупке. Сумма: {cost} руб.")
 
+            # Добавляем купленный товар в чек
+            purchased_items[item_name] = {'quantity': quantity, 'cost': cost}
+
     print(f"Итого к оплате: {total_cost} руб.")
+    print("Чек:")
+    for item_name, item_info in purchased_items.items():
+        print(f"{item_name} - Количество: {item_info['quantity']}, Цена: {item_info['cost']} руб.")
     print("Остаток товаров в магазине:")
     print_all_info()
 
 
+
+# Основной цикл программы
 while True:
     print("\nМеню:")
     print("1. Просмотр цены")
